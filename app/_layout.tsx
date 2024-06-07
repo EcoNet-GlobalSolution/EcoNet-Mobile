@@ -1,28 +1,28 @@
-import { Pressable, StyleSheet, Image } from "react-native"
-import { Slot, useNavigation } from "expo-router"
-import { DrawerActions } from "@react-navigation/native"
-import { StatusBar } from "expo-status-bar"
-import { FontAwesome5 } from '@expo/vector-icons';
+import { Pressable, StyleSheet, Image } from "react-native";
+import { Slot, useNavigation } from "expo-router";
+import { DrawerActions } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function Layout() {
-  const navigation = useNavigation()
-  const toggleMenu = () => navigation.dispatch(DrawerActions.toggleDrawer())
+  const navigation = useNavigation();
+  const toggleMenu = () => navigation.dispatch(DrawerActions.toggleDrawer());
 
   return (
     <>
       <StatusBar style="light" backgroundColor="transparent" translucent />
-        <Image 
+      <Image
         source={require("../assets/images/EcoNet.png")}
         style={styles.logo}
         resizeMode="contain"
-        />
+      />
       <Pressable onPress={toggleMenu} style={styles.menu}>
-      <FontAwesome5 name="ellipsis-h" size={24} color="#3AFFFF" />
+        <FontAwesome5 name="ellipsis-h" size={24} color="#3AFFFF" />
       </Pressable>
 
       <Slot />
     </>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -37,6 +37,6 @@ const styles = StyleSheet.create({
     left: -110,
     top: 52,
     zIndex: 1,
-    height: 20
-  }
-})
+    height: 20,
+  },
+});
